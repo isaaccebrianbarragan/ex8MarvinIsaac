@@ -32,6 +32,21 @@ public class PersonDataTools {
     }
     
     /**
+     * Comprueba si el primer valor dado por parametros está entre el minimo y el maximo dado en los siguientes parametros.
+     * @param number double Numero a comprobar.
+     * @param min double Numero mas pequeño posible.
+     * @param max double Numero mas grande posible.
+     * @return boolean true si el numero a comprobar es igual o superior al mínimo y igual o inferior al maximo, falso en caso contrario.
+     */
+    public static boolean isBetween(double number, double min, double max) {
+        boolean result = false;
+        if(number >= min && number <= max) {
+            result = true;
+        }
+        return result;
+    }
+    
+    /**
      * Comprueba si el valor dado por parametros es un valor entero 'int'.
      * @param value String Contiene un numero entero.
      * @return boolean true si el String dado por parametros es un valor entero, false en caso contrario.
