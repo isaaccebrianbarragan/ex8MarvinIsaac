@@ -1,5 +1,7 @@
 package ex8;
 
+import java.util.Scanner;
+
 /**
  * Esta clase contiene el desarrollo del ejercício 8:
  *  8.- En un programa se'ns demanen els següents camps: nom complet (nom i 
@@ -22,11 +24,60 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        if(PersonDataTools.onlyContainsLetters("Asdflkjsaáàâ askjaskjsaK s")) {
-            System.out.println("true");
+        
+        Scanner sc = new Scanner(System.in);  //crear un objeto Scanner
+        
+        Person p = new Person();
+        
+        System.out.println("------Escribe tus datos-----\n");
+        System.out.println("Nombre:");
+        p.setNombre(sc.nextLine());
+        System.out.println("DNI:");
+        p.setDni(sc.next());
+        System.out.println("Edad:");
+        p.setEdad(sc.nextInt());
+        System.out.println("Peso:");
+        p.setPeso(sc.nextDouble());
+        System.out.println("Email:");
+        p.setCorreo(sc.next());
+        
+        System.out.println(p.toString());
+        
+        //comprovamos que nombre sea correcto
+        if(PersonDataTools.onlyContainsLetters(p.getNombre())) {
+            System.out.println("Nombre valido\n");
         } else {
-            System.out.println("false");
+            System.out.println("*Nombre no valido*\n");
         }
+        
+        //comprobamos que el DNI es correcto
+        if(PersonDataTools.isDni(p.getDni())) {
+            System.out.println("DNI valido\n");
+        } else {
+            System.out.println("*DNI no valido*\n");
+        }
+        
+        //comprobamos la edad que sea entre 1-100
+        if(PersonDataTools.isBetween(p.getEdad(),1,100)) {
+            System.out.println("Edad valida\n");
+        } else {
+            System.out.println("*Edad no valido*\n");
+        }
+        
+        //comprobamos el peso que sea entre 30-200 Kg
+        if(PersonDataTools.isBetween(p.getPeso(),30,100)) {
+            System.out.println("Peso valido\n");
+        } else {
+            System.out.println("*Peso no valido*\n");
+        }
+        
+        //comprobamos que el correo introducido sea correcto.
+        if(PersonDataTools.isEmail(p.getCorreo())) {
+            System.out.println("Email valido\n");
+        } else {
+            System.out.println("*Email no valido*\n");
+        }
+        
     }
     
 }
